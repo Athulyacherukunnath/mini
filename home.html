@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome</title>
+		<style> 
+.Register {
+	 color:#ffffff;
+    background-color: #4CAF50;
+
+   
+    padding: 8px 12px;
+    text-align: center;
+   text-decoration: none;
+   border: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.submit {
+background-color: #000000;
+    color: blue;
+    padding: 5px 10px;
+    text-align: center;
+    border: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.logout {
+background-color: black;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    border: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+}
+a{
+    color:white;
+}
+</style>
+
+</head>
+<body>
+	{% if not request.user.is_authenticated %}
+	<div class="header-class">
+		<h1>Welcome to Untitled</h1>
+		<p>You are Viewing Basic Contents of This page</p>
+        <p>Login to View Premium Content</p>
+        <button type="submit"class="submit" ><a href="{% url 'views.login_page' %}" style="text-decoration: none; font:white">Login</a></button>
+        <p>New User ? <button class="Register" ><a href="{% url 'views.register_page' %}" style="text-decoration: none;">Register</a>
+        </button></p>
+	</div>
+	{% else %}
+	<div class="header-class">
+		<h1>Welcome User</h1>
+        <p>Premium Content</p>
+         <button class="logout" > <a href="/logout/" style="text-decoration: none;">Logout</a></button>
+	</div>
+	{% endif %}
+</body>
+</html>
