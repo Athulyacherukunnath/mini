@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<style> 
+.Register {
+	 color:#ffffff;
+    background-color: #4CAF50;
+
+   
+    padding: 8px 12px;
+    text-align: center;
+   text-decoration: none;
+   border: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+.submit {
+background-color: #ffffff;
+    color: #000000;
+    padding: 5px 10px;
+    text-align: center;
+    border: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+
+}
+</style>
+
+</head>
+
+<body bgcolor= "#010100" >
+<font color="white">
+
+	<div class="header-class" align="center">
+		<form method="POST" class="form-control">{% csrf_token %}
+			{{form}}
+			<button type="submit" class="submit">Login</button>
+		</form>
+		<p>New User ? <button class="Register" ><a href="{% url 'views.register_page' %}" style="text-decoration: none;">Register</a></button></p>
+		<div class="header-class2" align="center">
+
+			<button class="Register"><a href="{% url 'views.home_page' %}" style="text-decoration: none;">Go Back</a></button>
+	</div>
+</font>
+</body>
+</html>
